@@ -1,0 +1,4 @@
+.close:before {
+  display: block;
+  content: "\00d7";
+}

@@ -1,0 +1,10 @@
+clear_field:
+  version: 1.x
+  css:
+    theme:
+      css/clear-field.css: {}
+  js:
+    js/clear-field.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
