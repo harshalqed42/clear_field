@@ -1,0 +1,38 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implementation of hook_theme().
+ */
+function clear_field_theme($existing, $type, $theme, $path) {
+    return [
+      'clear_field' => [
+         'variables' => [
+           'span_class' => NULL,
+           'a_class' => NULL,
+         ],
+      ],
+    ];
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function clear_field_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  //Implement a config file to decide on whether to add clear_field icon on this form for text and email fields
+  // If all pages seleceted , implement global
+//  $form['#attached']['library'][] = 'clear_field/clear_field';
+    $clear_field = [
+      '#theme' => 'clear_field',
+      '#span_class' => 'span-class',
+      '#a_class' => 'a-class',
+    ];
+
+// Render the template to HTML
+    $clear_field_content = \Drupal::service('renderer')->render($clear_field);
+    $form['#attached']['drupalSettings']['clear_field']['close_button'] = $clear_field_content;
+    $form['#attached']['drupalSettings']['clear_field']['span_class'] = $clear_field['#span_class'];
+    $form['#attached']['drupalSettings']['clear_field']['form_text_class'] = ['form-text','form-email'];
+
+}

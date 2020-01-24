@@ -1,0 +1,4 @@
+name: Clear Field
+type: module
+description: 'Provides a cross button to clear fields of type text or email.'
+core: 8.x
