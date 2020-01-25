@@ -13,7 +13,6 @@
                     classes = classes + 'input.' + value + ', ';
               }
           });
-          var classes = '.form-text';
           $(classes, context).each(function () {
                   if ($(this).val()) {
                       var parent = $(this).parent();
