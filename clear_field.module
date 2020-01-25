@@ -33,6 +33,7 @@ function clear_field_form_alter(&$form, FormStateInterface $form_state, $form_id
     $clear_field_content = \Drupal::service('renderer')->render($clear_field);
     $form['#attached']['drupalSettings']['clear_field']['close_button'] = $clear_field_content;
     $form['#attached']['drupalSettings']['clear_field']['span_class'] = $clear_field['#span_class'];
+
     $form['#attached']['drupalSettings']['clear_field']['form_text_class'] = ['form-text','form-email'];
 
 }
